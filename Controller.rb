@@ -20,11 +20,14 @@ while true do
 	 elsif turn == 'X'
 	 	turn='O'
 	 end
-	game.playingBoard.insert(colNum.to_i,turn)
+	row, colNum = game.playingBoard.insert(colNum.to_i,turn)
 	for i in 0..5
 		for j in 0..5
 			print game.playingBoard.board[i][j]
 		end
 		puts ''
+	end
+	if game.playingBoard.checkWinner(row, colNum) == true
+		break; 
 	end
 end
